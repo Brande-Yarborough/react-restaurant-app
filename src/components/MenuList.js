@@ -79,4 +79,4 @@ const INITIAL_MENU_ITEMS = [
 ];
 
 
-export default MenuList;
+// export default MenuList;

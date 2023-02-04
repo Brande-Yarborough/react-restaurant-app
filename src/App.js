@@ -3,7 +3,6 @@ import MenuList from "./components/MenuList";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import "./App.css";
 
 function App() {
@@ -17,13 +16,13 @@ function App() {
     //   <MenuList />
     // </div>
 
-    <Navbar bg="light" fixed="top">
+    <Navbar className="navbar" fixed="top">
       <Container>
         <Navbar.Brand href="#home">
           <img
-            src="src/assets/farmfreshfastlogo.png"
-            width="30"
-            height="30"
+            src="https://static.spotapps.co/website_images/ab_websites/105011_website/logo_scroll.png"
+            width="50"
+            height="50"
             className="d-inline-block align-top"
             alt="Farm Fresh Fast logo"
           />
