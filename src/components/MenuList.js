@@ -78,10 +78,5 @@ const INITIAL_MENU_ITEMS = [
   }
 ];
 
-function MenuList() {
-    return (
-
-    );
-}
 
 export default MenuList;
