@@ -1,7 +1,15 @@
 import "./App.css";
 
 function App() {
-  return <div className="App"></div>;
+  const [order, setOrder] = useState([]);
+
+  return (
+    <div className="App">
+      <div className="Farm Fresh Fast Logo here">
+        <h1>Farm Fresh Fast</h1>
+      </div>
+    </div>
+  );
 }
 
 export default App;
