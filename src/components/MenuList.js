@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { nanoid } from "nanoid";
 
 const INITIAL_MENU_ITEMS = [
@@ -78,5 +78,26 @@ const INITIAL_MENU_ITEMS = [
   }
 ];
 
+function MenuList() {
+  const [menuItems, setMenuItems] = useState(INITIAL_MENU_ITEMS)
+  
+  const innerHTML = INITIAL_MENU_ITEMS.map((x) => (
+    <div key={x.id}>
+    <div>{x.name}</div>
+    <div>{x.description}</div>
+    <div>{x.price}</div>
+  </div>
 
-// export default MenuList;
+  )
+  )
+  return (
+    <section>
+      {innerHTML}
+    </section>
+  )
+
+  
+  
+}
+
+export default MenuList;

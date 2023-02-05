@@ -38,6 +38,9 @@ function App() {
         </Container>
       </Navbar>
       <UncontrolledExample />
+      <div className="Menu-List">
+        <MenuList/>
+      </div>
     </div>
   );
 }
