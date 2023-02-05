@@ -19,7 +19,7 @@ function MenuItem({ menuItem }) {
             className="cart-button"
             type="button"
             variant="primary"
-            // onClick={() => addToCart({ name, price })}
+            onClick={() => addToCart({ name, price })}
           >
             Add to Cart
           </Button>

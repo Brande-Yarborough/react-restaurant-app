@@ -107,14 +107,14 @@ function MenuList() {
   // )
 
   const menuItemsHTML = menuItems
-  // .filter((item) => filter ? item.category.toLowerCase() === filter : item)
+  // .filter((menuItem) => filter ? menuItem.category.toLowerCase() === filter : menuItem)
   .map((menuItem) => (
     <MenuItem key={menuItem.id} menuItem={menuItem}/>
   ));
 
   return (
     <>
-    {/* <Nav variant="tabs" defaultActiveKey="#first">
+    <Nav variant="tabs" defaultActiveKey="#first">
       <Nav.Item>
         <Nav.Link key="Farm to Hands" onClick={() => setFilter("Farm to Hands")} href="#first">Farm to Hands</Nav.Link>
       </Nav.Item>
@@ -127,7 +127,7 @@ function MenuList() {
       <Nav.Item>
         <Nav.Link href="#no-kill">No-Kill Menu</Nav.Link>
       </Nav.Item>
-    </Nav> */}
+    </Nav>
     <div>
       {menuItemsHTML}
     </div>

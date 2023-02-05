@@ -38,8 +38,8 @@ function App() {
       <ImageCarousel />
       <div className="Menu-List" id="menu">
         <MenuList/>
-       </div>
-      {/* <MenuItem/> */}
+      </div>
+
     </div> 
   );
 }
