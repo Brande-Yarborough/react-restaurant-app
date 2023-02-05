@@ -5,17 +5,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./App.css";
 import UncontrolledExample from "./components/ImageCarousel";
+import MenuItem from "./components/MenuItem";
 
 function App() {
   const [order, setOrder] = useState([]);
 
   return (
-    // <div className="App">
-    //   <div className="Farm Fresh Fast Logo">
-    //     <h1>Farm Fresh Fast</h1>
-    //   </div>
-    //   <MenuList />
-    // </div>
+
+    //react bootstrap navbar, carousel, and menu list
     <div className="App">
       <Navbar className="navbar" fixed="top">
         <Container>
@@ -37,11 +34,12 @@ function App() {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar>   
       <UncontrolledExample />
       <div className="Menu-List" id="menu">
         <MenuList/>
       </div>
+      <MenuItem/>
     </div>
   );
 }
