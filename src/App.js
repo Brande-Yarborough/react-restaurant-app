@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./App.css";
-import UncontrolledExample from "./components/ImageCarousel";
+import ImageCarousel from "./components/ImageCarousel";
 import MenuItem from "./components/MenuItem";
 
 function App() {
@@ -35,12 +35,12 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>   
-      <UncontrolledExample />
+      <ImageCarousel />
       <div className="Menu-List" id="menu">
         <MenuList/>
-      </div>
-      <MenuItem/>
-    </div>
+       </div>
+      {/* <MenuItem/> */}
+    </div> 
   );
 }
 

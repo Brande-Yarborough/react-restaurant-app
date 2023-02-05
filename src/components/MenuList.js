@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
+import MenuItem from "./MenuItem";
+import Nav from 'react-bootstrap/Nav';
 
 const INITIAL_MENU_ITEMS = [
   {
@@ -90,22 +92,47 @@ const INITIAL_MENU_ITEMS = [
 ];
 
 function MenuList() {
-  const [menuItems, setMenuItems] = useState(INITIAL_MENU_ITEMS)
-  
-  const innerHTML = INITIAL_MENU_ITEMS.map((x) => (
-    <div key={x.id}>
-    <div>{x.name}</div>
-    <div>{x.description}</div>
-    <div>{x.price}</div>
-  </div>
+  const [menuItems, setMenuItems] = useState(INITIAL_MENU_ITEMS);
+  const [filter, setFilter] = useState("Farm to Hands");
 
-  )
-  )
+  
+  // const innerHTML = INITIAL_MENU_ITEMS.map((x) => (
+  //   <div key={x.id}>
+  //   <div>{x.name}</div>
+  //   <div>{x.description}</div>
+  //   <div>{x.price}</div>
+  // </div>
+
+  // )
+  // )
+
+  const menuItemsHTML = menuItems
+  // .filter((item) => filter ? item.category.toLowerCase() === filter : item)
+  .map((menuItem) => (
+    <MenuItem key={menuItem.id} menuItem={menuItem}/>
+  ));
+
   return (
-    <section>
-      {innerHTML}
-    </section>
-  )
+    <>
+    {/* <Nav variant="tabs" defaultActiveKey="#first">
+      <Nav.Item>
+        <Nav.Link key="Farm to Hands" onClick={() => setFilter("Farm to Hands")} href="#first">Farm to Hands</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="#favorites">Farm Favorites</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="#salads">Salads</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="#no-kill">No-Kill Menu</Nav.Link>
+      </Nav.Item>
+    </Nav> */}
+    <div>
+      {menuItemsHTML}
+    </div>
+    </>
+  );
 
   
   
