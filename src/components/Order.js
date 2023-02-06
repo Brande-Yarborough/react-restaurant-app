@@ -10,13 +10,15 @@ function Order({ order }) {
   ));
 
   return (
-      <Card className="cart-aside">
-        <Card.Header>Cart</Card.Header>
-        <Card.Body>
-          {orderHTML}
-          <Button variant="primary">Submit Order</Button>
-        </Card.Body>
-      </Card>
+    <Card className="cart-aside">
+      <Card.Header>Cart</Card.Header>
+      <Card.Body>
+        {orderHTML}
+        <Button className="submit-order" variant="primary">
+          Submit Order
+        </Button>
+      </Card.Body>
+    </Card>
   );
 }
 
