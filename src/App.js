@@ -11,11 +11,8 @@ import Order from "./components/Order";
 function App() {
   const [order, setOrder] = useState([]);
 
-  const addToCart = (name, price) => {
-        //addToCart method when called, takes and adds to array
-    const newOrder= {name, price}
-    setOrder([...order, newOrder]);
-    //spread out current value of order, then add this new order to update value of order
+  const addToCart = (menuItem) => {
+    setOrder([...order, menuItem]);
   };
 
   return (
@@ -46,10 +43,10 @@ function App() {
       <ImageCarousel />
       <div className="Menu-Cart-Container">
         <div className="Menu-List" id="menu">
-          <MenuList/>
+          <MenuList addToCart={addToCart}/>
         </div>
         <div className="Cart-Aside">
-          <Order order={order} addToCart={addToCart}/>
+          <Order order={order}/>
         </div>
       </div>
     </div> 

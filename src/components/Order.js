@@ -2,10 +2,10 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 function Order({ order }) {
-  const orderHTML = order.map((order) => (
-    <div key={order.id}>
-      <Card.Title>{order.name}</Card.Title>
-      <Card.Text>{order.price}</Card.Text>
+  const orderHTML = order.map((item, index) => (
+    <div key={index}>
+      <Card.Title>{item.name}</Card.Title>
+      <Card.Text>{item.price}</Card.Text>
     </div>
   ));
 
