@@ -110,7 +110,7 @@ function MenuList({addToCart}) {
   // )
 
   const menuItemsHTML = menuItems
-  // .filter((menuItem) => filter ? menuItem.category.toLowerCase() === filter : menuItem)
+  .filter((menuItem) => menuItem.category.toLowerCase() === filter.toLowerCase())
   .map((menuItem) => (
     <MenuItem key={menuItem.id} name={menuItem.name} description={menuItem.description} price={menuItem.price} addToCart={addToCart}/>
   ));
@@ -122,13 +122,13 @@ function MenuList({addToCart}) {
         <Nav.Link key="Farm to Hands" onClick={() => setFilter("Farm to Hands")} href="#first">Farm to Hands</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="#favorites">Farm Favorites</Nav.Link>
+        <Nav.Link key="Farm Favorites" onClick={() => setFilter("Farm Favorites")} href="#favorites">Farm Favorites</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="#salads">Salads</Nav.Link>
+        <Nav.Link key="Salads" onClick={() => setFilter("Salads")} href="#salads">Salads</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="#no-kill">No-Kill Menu</Nav.Link>
+        <Nav.Link key="No-Kill Menu" onClick={() => setFilter("No-Kill Menu")} href="#no-kill">No-Kill Menu</Nav.Link>
       </Nav.Item>
     </Nav>
     <div>
