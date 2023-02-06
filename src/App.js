@@ -11,6 +11,13 @@ import Order from "./components/Order";
 function App() {
   const [order, setOrder] = useState([]);
 
+  const addToCart = (name, price) => {
+        //addToCart method when called, takes and adds to array
+    const newOrder= {name, price}
+    setOrder([...order, newOrder]);
+    //spread out current value of order, then add this new order to update value of order
+  };
+
   return (
 
     //react bootstrap navbar, carousel, and menu list
@@ -42,7 +49,7 @@ function App() {
           <MenuList/>
         </div>
         <div className="Cart-Aside">
-          <Order order={order}/>
+          <Order order={order} addToCart={addToCart}/>
         </div>
       </div>
     </div> 
