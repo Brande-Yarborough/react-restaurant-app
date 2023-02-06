@@ -94,6 +94,9 @@ const INITIAL_MENU_ITEMS = [
 function MenuList() {
   const [menuItems, setMenuItems] = useState(INITIAL_MENU_ITEMS);
   const [filter, setFilter] = useState("Farm to Hands");
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
 
   
   // const innerHTML = INITIAL_MENU_ITEMS.map((x) => (
@@ -109,7 +112,7 @@ function MenuList() {
   const menuItemsHTML = menuItems
   // .filter((menuItem) => filter ? menuItem.category.toLowerCase() === filter : menuItem)
   .map((menuItem) => (
-    <MenuItem key={menuItem.id} menuItem={menuItem}/>
+    <MenuItem key={menuItem.id} name={menuItem.name} description={menuItem.description} price={menuItem.price}/>
   ));
 
   return (

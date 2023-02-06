@@ -3,8 +3,19 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import MenuList from "./MenuList";
+import Order from "./Order";
+import { nanoid } from "nanoid";
 
-function MenuItem({ menuItem }) {
+function MenuItem({ name, price, description, category, addToCart }) {
+  const menuItem = {
+    id: nanoid(),
+    name,
+    price,
+    description,
+    category,
+    addToCart,
+  };
+
   return (
     <div className="menu-item">
       <Card className="menu-card" style={{ width: "45rem" }}>
@@ -19,7 +30,7 @@ function MenuItem({ menuItem }) {
             className="cart-button"
             type="button"
             variant="primary"
-            onClick={() => addToCart({ name, price })}
+            onClick={() => console.log({ name, price })}
           >
             Add to Cart
           </Button>

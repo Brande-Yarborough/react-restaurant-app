@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "./App.css";
 import ImageCarousel from "./components/ImageCarousel";
 import MenuItem from "./components/MenuItem";
+import Order from "./components/Order";
 
 function App() {
   const [order, setOrder] = useState([]);
@@ -36,10 +37,14 @@ function App() {
         </Container>
       </Navbar>   
       <ImageCarousel />
-      <div className="Menu-List" id="menu">
-        <MenuList/>
+      <div className="Menu-Cart-Container">
+        <div className="Menu-List" id="menu">
+          <MenuList/>
+        </div>
+        <div className="Cart-Aside">
+          <Order order={order}/>
+        </div>
       </div>
-
     </div> 
   );
 }
