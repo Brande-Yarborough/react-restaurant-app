@@ -6,7 +6,7 @@ import MenuList from "./MenuList";
 import Order from "./Order";
 import { nanoid } from "nanoid";
 
-function MenuItem({ name, price, description, category, addToCart }) {
+function MenuItem({ name, price, description, addToCart }) {
 
  
   
