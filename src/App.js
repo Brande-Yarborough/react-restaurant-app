@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MenuList from "./components/MenuList";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -10,10 +10,28 @@ import Order from "./components/Order";
 
 function App() {
   const [order, setOrder] = useState([]);
-
+  const [subTotal, setSubTotal] = useState(0);
   const addToCart = (menuItem) => {
     setOrder([...order, menuItem]);
   };
+  const removeItem = (index) => {
+    order.splice(index, 1)
+    setOrder([...order])
+  }
+  const clearCart = () => {
+    setOrder([]);
+    localStorage.removeItem("order");
+    
+  }
+  //everytime order changes it recalculates
+  useEffect(() => {
+    let newSubTotal = 0;
+    for (let i = 0; i < order.length; i++) {
+      newSubTotal += order[i].price;
+    }
+    setSubTotal(newSubTotal);
+    console.log(newSubTotal)
+  }, [order]);
 
   return (
 
@@ -46,7 +64,7 @@ function App() {
           <MenuList addToCart={addToCart}/>
         </div>
         <div className="Cart-Aside">
-          <Order order={order}/>
+          <Order order={order} subTotal = {subTotal} removeItem = {removeItem} clearCart = {clearCart}/>
         </div>
       </div>
     </div> 
