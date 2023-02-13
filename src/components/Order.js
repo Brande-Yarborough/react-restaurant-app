@@ -40,7 +40,7 @@ function Order({ order, subTotal, removeItem, clearCart }) {
         <Card.Header>Cart</Card.Header>
         <Card.Body>
           {orderHTML}
-          <div>subTotal:${subTotal}</div>
+          <div>Total:${subTotal}</div>
 
           <Button
             onClick={handleSubmitOrder}
