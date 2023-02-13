@@ -1,20 +1,19 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import React, { useState } from 'react';
-import Modal from 'react-bootstrap/Modal';
+import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
 
 function Order({ order, subTotal, removeItem, clearCart }) {
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const orderHTML = order.map((item, index) => (
     <div key={index}>
       <Card.Title>{item.name}</Card.Title>
-      <Card.Text>{item.price}</Card.Text>
+      <Card.Text>${item.price}</Card.Text>
       <Button
         onClick={() => {
           removeItem(index);
-
         }}
         className="remove-item"
         variant="primary"
@@ -32,34 +31,33 @@ function Order({ order, subTotal, removeItem, clearCart }) {
   const handleCompleteOrder = () => {
     clearCart();
     setShow(false);
-    alert("Thank you for your order!")
-
-  }
-
+    alert("Thank you for your order!");
+  };
 
   return (
     <>
-    <Card className="cart-aside">
-      <Card.Header>Cart</Card.Header>
-      <Card.Body>
-        {orderHTML}
-        <div>subTotal:{subTotal}</div>
+      <Card className="cart-aside">
+        <Card.Header>Cart</Card.Header>
+        <Card.Body>
+          {orderHTML}
+          <div>subTotal:${subTotal}</div>
 
-        <Button
-          onClick={handleSubmitOrder}
-          className="submit-order"
-          variant="primary"
-        >
-          Submit Order
-        </Button>
-      </Card.Body>
-    </Card>
-    <Modal show={show} onHide={handleClose}>
+          <Button
+            onClick={handleSubmitOrder}
+            className="submit-order"
+            variant="primary"
+          >
+            Submit Order
+          </Button>
+        </Card.Body>
+      </Card>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Your Order</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{orderHTML}
-        <div>subTotal:{subTotal}</div>
+        <Modal.Body>
+          {orderHTML}
+          <div>Total:${subTotal}</div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

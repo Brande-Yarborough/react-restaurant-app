@@ -15,14 +15,13 @@ function App() {
     setOrder([...order, menuItem]);
   };
   const removeItem = (index) => {
-    order.splice(index, 1)
-    setOrder([...order])
-  }
+    order.splice(index, 1);
+    setOrder([...order]);
+  };
   const clearCart = () => {
     setOrder([]);
     localStorage.removeItem("order");
-    
-  }
+  };
   //everytime order changes it recalculates
   useEffect(() => {
     let newSubTotal = 0;
@@ -30,11 +29,10 @@ function App() {
       newSubTotal += order[i].price;
     }
     setSubTotal(newSubTotal);
-    console.log(newSubTotal)
+    console.log(newSubTotal);
   }, [order]);
 
   return (
-
     //react bootstrap navbar, carousel, and menu list
     <div className="App">
       <Navbar className="navbar" fixed="top">
@@ -57,17 +55,22 @@ function App() {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>   
+      </Navbar>
       <ImageCarousel />
       <div className="Menu-Cart-Container">
         <div className="Menu-List" id="menu">
-          <MenuList addToCart={addToCart}/>
+          <MenuList addToCart={addToCart} />
         </div>
         <div className="Cart-Aside">
-          <Order order={order} subTotal = {subTotal} removeItem = {removeItem} clearCart = {clearCart}/>
+          <Order
+            order={order}
+            subTotal={subTotal}
+            removeItem={removeItem}
+            clearCart={clearCart}
+          />
         </div>
       </div>
-    </div> 
+    </div>
   );
 }
 
