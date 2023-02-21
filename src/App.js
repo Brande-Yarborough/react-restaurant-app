@@ -9,8 +9,15 @@ import MenuItem from "./components/MenuItem";
 import Order from "./components/Order";
 
 function App() {
+  const [customerName, setCustomerName] = useState([]);
   const [order, setOrder] = useState([]);
+  const [newOrder, setNewOrder] = useState([]);
   const [subTotal, setSubTotal] = useState(0);
+
+  const customer = () => {
+    setCustomerName([...customerName]);
+  };
+
   const addToCart = (menuItem) => {
     setOrder([...order, menuItem]);
   };
@@ -31,6 +38,15 @@ function App() {
     setSubTotal(newSubTotal);
     console.log(newSubTotal);
   }, [order]);
+
+  const submitOrder = (customerName) => {
+    const newOrder = {
+      customer_name: customerName,
+      sub_total: subTotal,
+      items: order,
+    };
+    setNewOrder(newOrder);
+  };
 
   return (
     //react bootstrap navbar, carousel, and menu list
@@ -67,6 +83,8 @@ function App() {
             subTotal={subTotal}
             removeItem={removeItem}
             clearCart={clearCart}
+            submitOrder={submitOrder}
+            customer={customer}
           />
         </div>
       </div>
