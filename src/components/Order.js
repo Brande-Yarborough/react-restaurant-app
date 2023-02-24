@@ -13,6 +13,8 @@ function Order({
   customer,
 }) {
   const [show, setShow] = useState(false);
+  const [customerName, setCustomerName] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
 
   const handleClose = () => setShow(false);
   const orderHTML = order.map((item, index) => (
@@ -33,16 +35,24 @@ function Order({
 
   const handleSubmitOrder = () => {
     console.log(order);
-    sessionStorage.setItem("order", "me");
-    localStorage.setItem("order", JSON.stringify(order));
+    // localStorage.setItem("order", JSON.stringify(order));
     setShow(true);
   };
 
   const handleCompleteOrder = () => {
-    clearCart();
+    const orders = JSON.parse(localStorage.getItem("ordersdemo")) || [];
+    console.log({ order });
+
+    const newOrder = {
+      customerName,
+      customerEmail,
+      items: order,
+    };
+    orders.push(newOrder);
+    localStorage.setItem("orders", JSON.stringify(orders));
     setShow(false);
     alert("Thank you for your order!");
-    submitOrder({ customer });
+    clearCart();
   };
 
   return (
@@ -71,18 +81,24 @@ function Order({
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Customer Name</Form.Label>
               <Form.Control
+                name="customerEmail"
                 type="text"
                 placeholder="FirstName LastName"
                 autoFocus
+                value={customerName}
+                onChange={(e) => setCustomerName(e.target.value)}
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Email address</Form.Label>
               <Form.Control
+                name="customerEmail"
                 type="email"
                 placeholder="name@example.com"
                 autoFocus
+                value={customerEmail}
+                onChange={(e) => setCustomerEmail(e.target.value)}
               />
             </Form.Group>
           </Form>
@@ -93,7 +109,7 @@ function Order({
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleCompleteOrder}>
+          <Button type="button" variant="primary" onClick={handleCompleteOrder}>
             Complete Order
           </Button>
         </Modal.Footer>
