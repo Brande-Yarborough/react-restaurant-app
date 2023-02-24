@@ -32,6 +32,8 @@ function Order({
   ));
 
   const handleSubmitOrder = () => {
+    console.log(order);
+    sessionStorage.setItem("order", "me");
     localStorage.setItem("order", JSON.stringify(order));
     setShow(true);
   };
